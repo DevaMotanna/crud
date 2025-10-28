@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Income & Expense Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="topcard">
+      <h1>Income & Expense Calculator</h1>
+      <div class="summary">
+        <div class="card">
+          <div class="label">Total Income</div>
+          <div id="totalIncome" class="value">₹0.00</div>
+        </div>
+        <div class="card">
+          <div class="label">Total Expense</div>
+          <div id="totalExpense" class="value">₹0.00</div>
+        </div>
+        <div class="card balance">
+          <div class="label">Balance</div>
+          <div id="balance" class="value">₹0.00</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="entry-section">
+      <form id="entryForm" class="form">
+        <input type="hidden" id="editId" value="" />
+
+        <div class="form-row">
+          <label for="desc">Description</label>
+          <input id="desc" type="text" placeholder="e.g., Salary, Rent, Groceries" required />
+        </div>
+
+        <div class="form-row">
+          <label for="amount">Amount</label>
+          <input id="amount" type="number" placeholder="0.00" step="0.01" min="0" required />
+        </div>
+
+        <div class="form-row">
+          <label>Type</label>
+          <div class="inline-controls">
+            <label class="radio">
+              <input type="radio" name="type" value="income" id="typeIncome" checked /> Income
+            </label>
+            <label class="radio">
+              <input type="radio" name="type" value="expense" id="typeExpense" /> Expense
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveBtn" class="btn primary">Add</button>
+          <button type="button" id="resetBtn" class="btn">Reset</button>
+        </div>
+      </form>
+
+      <aside class="filters">
+        <div class="filter-title">Show</div>
+        <label class="radio">
+          <input type="radio" name="filter" value="all" checked /> All
+        </label>
+        <label class="radio">
+          <input type="radio" name="filter" value="income" /> Income
+        </label>
+        <label class="radio">
+          <input type="radio" name="filter" value="expense" /> Expense
+        </label>
+      </aside>
+    </section>
+
+    <section class="list-section">
+      <h2>Entries</h2>
+      <ul id="entriesList" class="entries"></ul>
+      <div id="emptyMsg" class="empty">No entries yet. Add your first income or expense.</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
